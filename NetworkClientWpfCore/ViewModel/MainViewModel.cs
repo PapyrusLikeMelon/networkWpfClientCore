@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,13 @@ namespace NetworkClientWpfCore.ViewModel
 
         public UdpClientViewModel UdpClientVM { get; private set; }
         public UdpServerViewModel UdpServerVM { get; private set; }
+        public HttpServerViewModel HttpServerVM { get; private set; }
 
         public RelayCommand HomeViewCommand { get; set; }
 
         public RelayCommand UdpClientViewCommand { get; set; }
         public RelayCommand UdpServerViewCommand { get; set; }
+        public RelayCommand HttpServerViewCommand { get; set; }
 
         public RelayCommand CloseAppCommand { get; set; }
  
@@ -38,26 +41,31 @@ namespace NetworkClientWpfCore.ViewModel
             HomeVM = new HomeViewModel();
             UdpClientVM = new UdpClientViewModel();
             UdpServerVM = new UdpServerViewModel();
-
+            HttpServerVM = new HttpServerViewModel();
             CurrentView = HomeVM;
 
-            HomeViewCommand = new RelayCommand(o =>
+            HomeViewCommand = new RelayCommand(() =>
             {
                 CurrentView = HomeVM;
             });
 
-            UdpClientViewCommand = new RelayCommand(o =>
+            UdpClientViewCommand = new RelayCommand(() =>
             {
                 CurrentView = UdpClientVM;
             });
 
-            UdpServerViewCommand = new RelayCommand(o =>
+            UdpServerViewCommand = new RelayCommand(() =>
             {
                 CurrentView = UdpServerVM;
             });
+            HttpServerViewCommand = new RelayCommand(() =>
+            {
+                CurrentView = HttpServerVM;
+                HttpServerVM.ShowMessage();
+            });
 
 
-            CloseAppCommand = new RelayCommand(o =>
+            CloseAppCommand = new RelayCommand(() =>
             {
                 Application.Current.Shutdown();
             });

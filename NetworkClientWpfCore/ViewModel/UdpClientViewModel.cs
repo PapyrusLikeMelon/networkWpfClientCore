@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
+using CommunityToolkit.Mvvm.Input;
 
 namespace NetworkClientWpfCore.ViewModel
 {
@@ -37,7 +38,7 @@ namespace NetworkClientWpfCore.ViewModel
 
         public UdpClientViewModel()
         {
-            SendMessageCommand = new RelayCommand((o) =>
+            SendMessageCommand = new RelayCommand(() =>
             {
                 int i = 0;
                 string msg = Message;

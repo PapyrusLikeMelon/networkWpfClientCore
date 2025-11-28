@@ -18,8 +18,13 @@
             <DataTemplate DataType="{x:Type viewModel:UdpClientViewModel}">
                 <view:UdpClientView/>
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewModel:UdpServerViewModel}">
                 <view:UdpServerView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:HttpServerViewModel}">
+                <view:HttpServerView/>
             </DataTemplate>
 
         </ResourceDictionary>
